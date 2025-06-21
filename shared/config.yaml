@@ -1,0 +1,29 @@
+# ------------------------------------------------------------------
+# Default configuration for the GitHub Continuous Analytics Platform
+# ------------------------------------------------------------------
+# Settings in this file can be overridden by setting environment variables.
+# For example: `export KAFKA_BROKER_URL="kafka.my-domain.com:9092"`
+
+# --- Kafka Settings ---
+# Configuration for the Kafka message broker.
+kafka:
+  broker_url: "localhost:9092"
+  topic: "github-events"
+
+# --- GitHub API Settings ---
+# These settings are used by the 'api' producer strategy.
+github_api:
+  # How often to poll the GitHub Events API, in seconds.
+  # Be mindful of the API rate limit (5000 requests/hour with a token).
+  poll_interval_seconds: 10
+
+# --- Producer Settings ---
+# Controls the behavior of the event producer script.
+producer:
+  # Defines the event generation strategy.
+  # Valid options are:
+  #   "api":         Fetches real events from the public GitHub Events API.
+  #                  Requires a GITHUB_TOKEN for best performance.
+  #   "synthetic":   Generates fake, local events for debugging. Does not
+  #                  use the network or API rate limits.
+  strategy: "synthetic"

@@ -1,0 +1,4 @@
+requests>=2.24.0
+kafka-python==2.2.12
+PyYAML==6.0.2
+apache-beam[kafka]==2.65.0
