@@ -13,7 +13,23 @@ The primary goal is to produce accurate, aggregated analytics (e.g., "hourly tre
 *   **Data Sink**: InfluxDB (for time-series analytics)
 *   **Visualization**: Grafana
 
-# Execution 
+# Execution
+
+## Broker
+
+```shell
+docker-compose up -d
+```
+
+Manually send messages to the topic:
+```shell
+docker exec -it kafka kafka-console-producer --topic github-events --bootstrap-server kafka:29092
+```
+
+Manually read messages from the topic:
+```shell
+docker exec -it kafka kafka-console-consumer --topic github-events --bootstrap-server kafka:29092 --from-beginning
+```
 
 ## Producer
 

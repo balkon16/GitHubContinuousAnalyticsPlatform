@@ -14,3 +14,5 @@ producer/data/producer_state.json
 # IDEs
 .idea/
 .vscode/
+
+kafka_beam_consumer.py

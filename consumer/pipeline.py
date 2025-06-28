@@ -24,7 +24,6 @@ class ParseJson(beam.DoFn):
             yield json.loads(element_str)
         except (json.JSONDecodeError, UnicodeDecodeError) as e:
             logging.error(f"Failed to parse message. Error: {e}. Data: {element_bytes[:200]}")
-            # By not 'yielding' anything here, we effectively filter out the bad record.
 
 
 def run_consumer(argv=None):
