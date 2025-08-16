@@ -38,3 +38,22 @@ export PRODUCER_STRATEGY=api # optional
 export GITHUB_TOKEN=<your token>
 python main.py
 ```
+
+## Reading Kafka messages in Apache Beam
+
+1. Start Kafka and wait it fully initializes:
+```shell
+docker-compose up
+```
+
+2. Start a manual producer:
+```shell
+docker exec -it kafka kafka-console-producer --topic github-events --bootstrap-server kafka:29092
+```
+
+3. Start the consumer script:
+```shell
+python simple_kafka_consumer.py
+```
+
+The script should finish after around 5 seconds.
